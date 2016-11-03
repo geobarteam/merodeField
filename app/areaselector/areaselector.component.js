@@ -9,21 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var app_routing_1 = require('./app.routing');
-var AppModule = (function () {
-    function AppModule() {
+var router_1 = require('@angular/router');
+var AreaSelectorComponent = (function () {
+    function AreaSelectorComponent(router) {
+        this.router = router;
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routing_1.routing],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent],
+    AreaSelectorComponent.prototype.ngOnInit = function () {
+    };
+    AreaSelectorComponent = __decorate([
+        core_1.Component({
+            selector: 'my-areaselector',
+            templateUrl: 'app/areaselector/areaselector.component.html'
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+        __metadata('design:paramtypes', [router_1.Router])
+    ], AreaSelectorComponent);
+    return AreaSelectorComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.AreaSelectorComponent = AreaSelectorComponent;
+//# sourceMappingURL=areaselector.component.js.map
