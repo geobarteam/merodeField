@@ -13,8 +13,26 @@ var router_1 = require('@angular/router');
 var AreaSelectorComponent = (function () {
     function AreaSelectorComponent(router) {
         this.router = router;
+        this.verticals = new Array();
+        this.horizontals = new Array();
+        this.verticals = this.getVerticals();
+        this.horizontals = this.getHorizontals();
     }
     AreaSelectorComponent.prototype.ngOnInit = function () {
+    };
+    AreaSelectorComponent.prototype.getVerticals = function () {
+        var verticals = [];
+        for (var i = 0; i < 32; i++) {
+            verticals[i - 1] = i;
+        }
+        return verticals;
+    };
+    AreaSelectorComponent.prototype.getHorizontals = function () {
+        var horizontals = [];
+        for (var i = 0; i < 32; i++) {
+            horizontals[i - 1] = i;
+        }
+        return horizontals;
     };
     AreaSelectorComponent = __decorate([
         core_1.Component({
