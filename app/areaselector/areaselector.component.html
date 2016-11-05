@@ -1,11 +1,12 @@
-<h3>Area Selector</h3>
+<h3>Select your areas</h3>
 <div class="grid grid-pad">
 
 <table class="fieldbackground">
-  <tr  *ngFor="let y of rowNumbers">
-    <td *ngFor="let x of colNumbers">
-     <button class="transparent parcel" [class.selected]="field[x][y].selected" (click)="select(field[x][y])"></button>
+  <tr  *ngFor="let x of field.colNumbers">
+    <td *ngFor="let y of field.rowNumbers">
+     <button class="transparent parcel" [class.selected]="field.Areas[x][y].selected"  (click)="field.selectArea(x,y)"></button>
     </td>
   </tr>
 </table>
+</div>
    
