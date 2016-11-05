@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var area_1 = require('./area');
 var AreaSelectorComponent = (function () {
     function AreaSelectorComponent(router) {
+        var _this = this;
         this.router = router;
         this.rowsCount = 36;
         this.colCount = 25;
@@ -19,6 +21,13 @@ var AreaSelectorComponent = (function () {
         this.colNumbers = new Array();
         this.rowNumbers = this.getRowNumbers();
         this.colNumbers = this.getColNumbers();
+        this.field = [];
+        this.colNumbers.forEach(function (col) {
+            _this.field[col] = [];
+            _this.rowNumbers.forEach(function (row) {
+                _this.field[col][row] = new area_1.Area();
+            });
+        });
     }
     AreaSelectorComponent.prototype.ngOnInit = function () {
     };
@@ -28,8 +37,8 @@ var AreaSelectorComponent = (function () {
     AreaSelectorComponent.prototype.getColNumbers = function () {
         return this.getRepeatArray(this.rowsCount);
     };
-    AreaSelectorComponent.prototype.select = function (x, y) {
-        alert(x + "," + y);
+    AreaSelectorComponent.prototype.select = function (area) {
+        area.selected = true;
     };
     AreaSelectorComponent.prototype.getRepeatArray = function (repeatTimes) {
         var items = [];

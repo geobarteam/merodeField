@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }      from '@angular/router';
+import { Area } from './area';
 
 @Component({
   selector: 'my-areaselector',
@@ -12,11 +13,20 @@ export class AreaSelectorComponent implements OnInit {
 
     private rowNumbers = new Array<number>();
     private colNumbers = new Array<number>();
+    private field: Area[][];
   
     constructor(
         private router: Router    ) {
         this.rowNumbers = this.getRowNumbers();
         this.colNumbers = this.getColNumbers();
+        this.field = [];
+        this.colNumbers.forEach((col)=>{
+            this.field[col] = [];
+            this.rowNumbers.forEach((row)=>{
+                this.field[col][row] = new Area();
+            });
+        });
+        
     }
     
     ngOnInit() {
@@ -31,8 +41,8 @@ export class AreaSelectorComponent implements OnInit {
         return this.getRepeatArray(this.rowsCount);
     }
 
-    select(x:number, y:number){
-        alert(x +","+y);
+    select(area:Area){
+        area.selected = true;
     }
 
     getRepeatArray(repeatTimes:number):Array<number>{

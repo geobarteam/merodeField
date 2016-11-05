@@ -4,7 +4,7 @@
 <table class="fieldbackground">
   <tr  *ngFor="let y of rowNumbers">
     <td *ngFor="let x of colNumbers">
-     <button class="transparent parcel" (click)="select(x,y)"></button>
+     <button class="transparent parcel" [class.selected]="field[x][y].selected" (click)="select(field[x][y])"></button>
     </td>
   </tr>
 </table>
