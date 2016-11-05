@@ -1,10 +1,10 @@
 <h3>Area Selector</h3>
 <div class="grid grid-pad">
 
-<table>
-  <tr  *ngFor="let y of verticals">
-    <td *ngFor="let x of horizontals">
-     <img src="/images/field/field4000 [www.imagesplitter.net]-{{y}}-{{x}}.jpeg" id="img{{x + '-' + y}}" />
+<table class="fieldbackground">
+  <tr  *ngFor="let y of rowNumbers">
+    <td *ngFor="let x of colNumbers">
+     <button class="transparent parcel" (click)="select(x,y)"></button>
     </td>
   </tr>
 </table>

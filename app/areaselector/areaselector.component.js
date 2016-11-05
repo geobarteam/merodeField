@@ -13,26 +13,30 @@ var router_1 = require('@angular/router');
 var AreaSelectorComponent = (function () {
     function AreaSelectorComponent(router) {
         this.router = router;
-        this.verticals = new Array();
-        this.horizontals = new Array();
-        this.verticals = this.getVerticals();
-        this.horizontals = this.getHorizontals();
+        this.rowsCount = 36;
+        this.colCount = 25;
+        this.rowNumbers = new Array();
+        this.colNumbers = new Array();
+        this.rowNumbers = this.getRowNumbers();
+        this.colNumbers = this.getColNumbers();
     }
     AreaSelectorComponent.prototype.ngOnInit = function () {
     };
-    AreaSelectorComponent.prototype.getVerticals = function () {
-        var verticals = [];
-        for (var i = 0; i < 32; i++) {
-            verticals[i - 1] = i;
-        }
-        return verticals;
+    AreaSelectorComponent.prototype.getRowNumbers = function () {
+        return this.getRepeatArray(this.colCount);
     };
-    AreaSelectorComponent.prototype.getHorizontals = function () {
-        var horizontals = [];
-        for (var i = 0; i < 32; i++) {
-            horizontals[i - 1] = i;
+    AreaSelectorComponent.prototype.getColNumbers = function () {
+        return this.getRepeatArray(this.rowsCount);
+    };
+    AreaSelectorComponent.prototype.select = function (x, y) {
+        alert(x + "," + y);
+    };
+    AreaSelectorComponent.prototype.getRepeatArray = function (repeatTimes) {
+        var items = [];
+        for (var i = 0; i < repeatTimes; i++) {
+            items[i] = i + 1;
         }
-        return horizontals;
+        return items;
     };
     AreaSelectorComponent = __decorate([
         core_1.Component({

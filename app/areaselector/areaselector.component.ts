@@ -7,34 +7,41 @@ import { Router }      from '@angular/router';
 })
 export class AreaSelectorComponent implements OnInit {
     
-    private verticals = new Array<number>();
-    private horizontals = new Array<number>();
+    rowsCount = 36;
+    colCount = 25;
+
+    private rowNumbers = new Array<number>();
+    private colNumbers = new Array<number>();
   
     constructor(
         private router: Router    ) {
-        this.verticals = this.getVerticals();
-        this.horizontals = this.getHorizontals();
+        this.rowNumbers = this.getRowNumbers();
+        this.colNumbers = this.getColNumbers();
     }
     
     ngOnInit() {
         
     }
     
-    getVerticals():Array<number>{
-        var verticals = [];
-        for (var i=0;i<32;i++){
-            verticals[i-1] = i; 
-        }
-        return verticals;
+    getRowNumbers():Array<number>{
+        return this.getRepeatArray(this.colCount);
     }
    
-     getHorizontals():Array<number>{
-        var horizontals = [];
-        for (var i=0;i<32;i++){
-            horizontals[i-1] = i; 
-        }
-        return horizontals;
+     getColNumbers():Array<number>{
+        return this.getRepeatArray(this.rowsCount);
     }
+
+    select(x:number, y:number){
+        alert(x +","+y);
+    }
+
+    getRepeatArray(repeatTimes:number):Array<number>{
+        var items = [];
+        for (var i=0;i<repeatTimes;i++){
+            items[i] = i+1; 
+        }
+        return items;
+    } 
    
     
  }

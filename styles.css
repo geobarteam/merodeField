@@ -12,3 +12,34 @@ h2, h3 {
 body {
   margin: 2em;
 }
+
+.transparent {
+  background-color: Transparent;
+    background-repeat:no-repeat;
+    border-width: 1px;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+td:hover .transparent {
+  background-color: #146839;
+}
+
+td .selected {
+  background-color: #146839;
+}
+
+.parcel{
+  width: 30px;
+  height: 30px;
+}
+
+.fieldbackground {
+  background: url('/images/field.jpg');
+  background-size: 1080px 750px, cover; 
+}
+
+table{
+
+}
