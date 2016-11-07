@@ -5,9 +5,10 @@
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "lite": "lite-server",
     "tsc": "tsc",
-    "tsc:w": "tsc -w"
-  },
-  "licenses": [
+    "tsc:w": "tsc -w",
+    "postinstall": "typings install",
+    "typings": "typings"
+  }, "licenses": [
     {
       "type": "MIT",
       "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
