@@ -1,10 +1,15 @@
 export class Area{
-    selected:boolean;
+    selected: boolean;
+    constructor(
+        public positionX: number,
+        public positionY: number
+    ){}
+    
 }
 
 export class Field{
     
-    public Areas: Area[][];
+    public areas: Area[][];
     public rowNumbers:Array<number>;
     public colNumbers:Array<number>;
 
@@ -16,17 +21,27 @@ export class Field{
     }
 
     initializeAreas(){
-        this.Areas = [];
+        this.areas = [];
         this.colNumbers.forEach((col)=>{
-        this.Areas[col] = [];
+        this.areas[col] = [];
             this.rowNumbers.forEach((row)=>{
-                this.Areas[col][row] = new Area();
+                this.areas[col][row] = new Area(col,row);
             });
         });
     }
 
     selectArea(x:number,y:number){
-        this.Areas[x][y].selected = !this.Areas[x][y].selected;
+        this.areas[x][y].selected = !this.areas[x][y].selected;
+    }
+
+    selectedAreas():Area[] {
+        var filetered = Array<Area>();
+        this.areas.forEach(row=>row.forEach(col => {
+            if (col.selected) {
+                filetered.push(col);
+            }
+        }));
+        return filetered;
     }
 
     getRepeatArray(repeatTimes:number):Array<number>{

@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
 var areaselector_component_1 = require('./areaselector/areaselector.component');
+var subscription_component_1 = require('./areaselector/subscription.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +25,8 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                areaselector_component_1.AreaSelectorComponent
+                areaselector_component_1.AreaSelectorComponent,
+                subscription_component_1.SubscriptionComponent
             ],
             bootstrap: [app_component_1.AppComponent],
         }), 

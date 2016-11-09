@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
 import { routing } from './app.routing';
 import { AreaSelectorComponent } from './areaselector/areaselector.component'
+import { SubscriptionComponent } from './areaselector/subscription.component'
 
 @NgModule({
   imports:      [ 
@@ -10,8 +11,9 @@ import { AreaSelectorComponent } from './areaselector/areaselector.component'
     routing 
     ],
   declarations: [ 
-    AppComponent,
-    AreaSelectorComponent
+        AppComponent,
+        AreaSelectorComponent,
+        SubscriptionComponent
     ],
   bootstrap:    [ AppComponent ],
 })

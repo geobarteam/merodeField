@@ -1,6 +1,8 @@
 "use strict";
 var Area = (function () {
-    function Area() {
+    function Area(positionX, positionY) {
+        this.positionX = positionX;
+        this.positionY = positionY;
     }
     return Area;
 }());
@@ -15,16 +17,25 @@ var Field = (function () {
     }
     Field.prototype.initializeAreas = function () {
         var _this = this;
-        this.Areas = [];
+        this.areas = [];
         this.colNumbers.forEach(function (col) {
-            _this.Areas[col] = [];
+            _this.areas[col] = [];
             _this.rowNumbers.forEach(function (row) {
-                _this.Areas[col][row] = new Area();
+                _this.areas[col][row] = new Area(col, row);
             });
         });
     };
     Field.prototype.selectArea = function (x, y) {
-        this.Areas[x][y].selected = !this.Areas[x][y].selected;
+        this.areas[x][y].selected = !this.areas[x][y].selected;
+    };
+    Field.prototype.selectedAreas = function () {
+        var filetered = Array();
+        this.areas.forEach(function (row) { return row.forEach(function (col) {
+            if (col.selected) {
+                filetered.push(col);
+            }
+        }); });
+        return filetered;
     };
     Field.prototype.getRepeatArray = function (repeatTimes) {
         var items = [];
