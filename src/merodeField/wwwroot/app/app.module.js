@@ -10,10 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
 var areaselector_component_1 = require('./areaselector/areaselector.component');
-var subscription_component_1 = require('./areaselector/subscription.component');
+var subscription_form_component_1 = require('./areaselector/subscription-form.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,12 +22,13 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
                 app_routing_1.routing
             ],
             declarations: [
                 app_component_1.AppComponent,
                 areaselector_component_1.AreaSelectorComponent,
-                subscription_component_1.SubscriptionComponent
+                subscription_form_component_1.SubscriptionFormComponent
             ],
             bootstrap: [app_component_1.AppComponent],
         }), 

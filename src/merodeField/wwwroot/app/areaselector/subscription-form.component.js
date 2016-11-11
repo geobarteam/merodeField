@@ -9,21 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SubscriptionComponent = (function () {
-    function SubscriptionComponent() {
+var subscription_1 = require('./subscription');
+var SubscriptionFormComponent = (function () {
+    function SubscriptionFormComponent() {
+        this.subscription = new subscription_1.Subscription();
     }
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
-    ], SubscriptionComponent.prototype, "areas", void 0);
-    SubscriptionComponent = __decorate([
+    ], SubscriptionFormComponent.prototype, "areas", void 0);
+    SubscriptionFormComponent = __decorate([
         core_1.Component({
-            selector: 'subscription-component',
-            template: "<p>You selected: {{areas}}</p>"
+            selector: 'subscription-form',
+            templateUrl: 'app/areaselector/subscription-form.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], SubscriptionComponent);
-    return SubscriptionComponent;
+    ], SubscriptionFormComponent);
+    return SubscriptionFormComponent;
 }());
-exports.SubscriptionComponent = SubscriptionComponent;
-//# sourceMappingURL=subscription.component.js.map
+exports.SubscriptionFormComponent = SubscriptionFormComponent;
+//# sourceMappingURL=subscription-form.component.js.map

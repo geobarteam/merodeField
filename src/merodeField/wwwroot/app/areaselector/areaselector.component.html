@@ -1,15 +1,17 @@
-<h3>Kies &eacute;&eacute;n of meerdere percelen</h3>
-<div class="grid grid-pad">
-    
-    <table class="fieldbackground">
-        <tr  *ngFor="let x of field.colNumbers">
-            <td *ngFor="let y of field.rowNumbers">
-                <button class="transparent parcel" [class.selected]="field.areas[x][y].selected"  (click)="field.selectArea(x,y)"></button>
-            </td>
-        </tr>
-    </table>
-    <p>You selected the areas: <span *ngFor="let area of field.selectedAreas()">stuk:[{{area.positionX}},{{area.positionY}}]</span></p> 
-    <subscription-component [areas]="field.selectedAreas()"></subscription-component>
+<div class="container">
+    <div class="row">
+        <h2>Kies &eacute;&eacute;n of meerdere percelen</h2>
+        <table class="fieldbackground">
+            <tr  *ngFor="let x of field.colNumbers">
+                <td *ngFor="let y of field.rowNumbers">
+                    <button class="transparent parcel" [class.selected]="field.areas[x][y].selected"  (click)="field.selectArea(x,y)"></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <subscription-form [areas]="field.selectedAreas()"></subscription-form>
+    </div>
 </div>
 
    
