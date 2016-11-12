@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="panel">
+<div class="container" >
+    <div class="panel"  [hidden]="submitted">
         <div class="panel-heading">
             <h3>Kies &eacute;&eacute;n of meerdere percelen</h3>
         </div>
@@ -27,7 +27,10 @@
             </div>
         </div>
     </div>
-    <subscription-form [areas]="field.selectedAreas()"></subscription-form>
+    <subscription-form [areas]="field.selectedAreas()" (onSubmitted)="onSubmitted($event)"></subscription-form>
+    <div class="panel" *ngIf="submitted">
+        <p>Een e-mail werd naar {{subscription.email}} gestuurd, click op de link om jouw sponsoring te bevestigen!</p>
+    </div>
 </div>
     
    

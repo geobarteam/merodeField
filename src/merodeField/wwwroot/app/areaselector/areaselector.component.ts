@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }      from '@angular/router';
 import { Field, Area } from './field';
+import { Subscription } from './subscription';
 
 @Component({
   selector: 'my-areaselector',
@@ -12,7 +13,9 @@ export class AreaSelectorComponent implements OnInit {
     colCount = 25;
 
     public field: Field;
-  
+    submitted = false;
+    subscription:Subscription;
+
     constructor(
         private router: Router    ) {
         this.field = new Field(this.colCount, this.rowCount);
@@ -25,4 +28,9 @@ export class AreaSelectorComponent implements OnInit {
     onKey(value:string, area:Area) {
         area.charachter = value.toUpperCase();
     }  
+
+    onSubmitted(subscription: Subscription) {
+        this.submitted = true;
+        this.subscription = subscription;
+    }
  }

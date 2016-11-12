@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Subscription } from './subscription';
 import { Field, Area } from './field';
 
@@ -9,6 +9,9 @@ import { Field, Area } from './field';
 export class SubscriptionFormComponent {
     @Input()
     public areas: Area[];
+    @Output()
+    onSubmitted = new EventEmitter<Subscription>();
+
     public subscription: Subscription;
     
     constructor(){
@@ -19,5 +22,6 @@ export class SubscriptionFormComponent {
 
     onSubmit() {
         this.submitted=true;
+        this.onSubmitted.emit(this.subscription);
     }
 }

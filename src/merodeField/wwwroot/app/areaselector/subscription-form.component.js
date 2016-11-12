@@ -12,16 +12,22 @@ var core_1 = require('@angular/core');
 var subscription_1 = require('./subscription');
 var SubscriptionFormComponent = (function () {
     function SubscriptionFormComponent() {
+        this.onSubmitted = new core_1.EventEmitter();
         this.submitted = false;
         this.subscription = new subscription_1.Subscription();
     }
     SubscriptionFormComponent.prototype.onSubmit = function () {
         this.submitted = true;
+        this.onSubmitted.emit(this.subscription);
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
     ], SubscriptionFormComponent.prototype, "areas", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], SubscriptionFormComponent.prototype, "onSubmitted", void 0);
     SubscriptionFormComponent = __decorate([
         core_1.Component({
             selector: 'subscription-form',

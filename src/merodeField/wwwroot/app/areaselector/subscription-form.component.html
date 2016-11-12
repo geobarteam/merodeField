@@ -1,4 +1,4 @@
-﻿<div  [hidden]="submitted">
+﻿<div  [hidden]="submitted || areas.length == 0">
     <div class="alert alert-danger" *ngIf="areas.length < 1">Gelieve minstens 1 perceel te selecteren</div>
     <form (ngSubmit)="onSubmit()" #subscriptionForm="ngForm">
         <div class="form-group">

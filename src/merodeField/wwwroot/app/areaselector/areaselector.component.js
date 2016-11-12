@@ -16,12 +16,17 @@ var AreaSelectorComponent = (function () {
         this.router = router;
         this.rowCount = 36;
         this.colCount = 25;
+        this.submitted = false;
         this.field = new field_1.Field(this.colCount, this.rowCount);
     }
     AreaSelectorComponent.prototype.ngOnInit = function () {
     };
     AreaSelectorComponent.prototype.onKey = function (value, area) {
         area.charachter = value.toUpperCase();
+    };
+    AreaSelectorComponent.prototype.onSubmitted = function (subscription) {
+        this.submitted = true;
+        this.subscription = subscription;
     };
     AreaSelectorComponent = __decorate([
         core_1.Component({
