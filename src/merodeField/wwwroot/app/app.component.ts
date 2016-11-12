@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   
 })
 export class AppComponent {
-    title = 'Sponsering aanleg Hockeyveld';
+    title = 'Sponsoring aanleg Hockeyveld';
 }
