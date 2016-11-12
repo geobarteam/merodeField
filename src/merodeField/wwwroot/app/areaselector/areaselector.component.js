@@ -20,6 +20,9 @@ var AreaSelectorComponent = (function () {
     }
     AreaSelectorComponent.prototype.ngOnInit = function () {
     };
+    AreaSelectorComponent.prototype.onKey = function (value, area) {
+        area.charachter = value.toUpperCase();
+    };
     AreaSelectorComponent = __decorate([
         core_1.Component({
             selector: 'my-areaselector',

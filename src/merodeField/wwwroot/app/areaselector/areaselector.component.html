@@ -1,17 +1,36 @@
 <div class="container">
-    <div class="row">
-        <h2>Kies &eacute;&eacute;n of meerdere percelen</h2>
-        <table class="fieldbackground">
-            <tr  *ngFor="let x of field.colNumbers">
-                <td *ngFor="let y of field.rowNumbers">
-                    <button class="transparent parcel" [class.selected]="field.areas[x][y].selected"  (click)="field.selectArea(x,y)"></button>
-                </td>
-            </tr>
-        </table>
+    <div class="panel">
+        <div class="panel-heading">
+            <h3>Kies &eacute;&eacute;n of meerdere percelen</h3>
+        </div>
+        <div class="panel-body">
+            <table class="fieldbackground">
+                <tr  *ngFor="let x of field.colNumbers">
+                    <td *ngFor="let y of field.rowNumbers">
+                        <button class="transparent parcel" [class.selected]="field.areas[x][y].selected"  (click)="field.selectArea(x,y)">{{field.areas[x][y].character}}</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel-footer" *ngIf="field.selectedAreas().length > 0">
+            <div class="row">
+                <p *ngIf="field.selectedAreas().length == 1"><label>Je selecteerde één perceel</label></p>
+                <p *ngIf="field.selectedAreas().length > 1"><label>Je selecteerde {{field.selectedAreas().length}} percelen</label></p>
+                <p>In elk perceel kan je 1 charchter plaatsen</p>
+                </div>
+            <div class="row">
+                <ul>
+                    <li *ngFor="let area of field.selectedAreas()">({{area.positionX}},{{area.positionY}}) 
+                        <input #box type="text" (keyup)="onKey(box.value, area)" [(ngModel)]="area.character" maxlength="1" size="1"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <subscription-form [areas]="field.selectedAreas()"></subscription-form>
-    </div>
+    <subscription-form [areas]="field.selectedAreas()"></subscription-form>
 </div>
+    
+   
+
 
    

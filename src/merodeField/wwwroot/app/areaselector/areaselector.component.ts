@@ -20,5 +20,9 @@ export class AreaSelectorComponent implements OnInit {
     }
     
     ngOnInit() {
-    }    
+    }  
+
+    onKey(value:string, area:Area) {
+        area.charachter = value.toUpperCase();
+    }  
  }

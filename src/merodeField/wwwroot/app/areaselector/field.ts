@@ -4,6 +4,7 @@ export class Area{
         public positionX: number,
         public positionY: number
     ){}
+    charachter = "";
     
 }
 

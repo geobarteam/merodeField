@@ -12,8 +12,12 @@ var core_1 = require('@angular/core');
 var subscription_1 = require('./subscription');
 var SubscriptionFormComponent = (function () {
     function SubscriptionFormComponent() {
+        this.submitted = false;
         this.subscription = new subscription_1.Subscription();
     }
+    SubscriptionFormComponent.prototype.onSubmit = function () {
+        this.submitted = true;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)

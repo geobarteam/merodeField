@@ -3,6 +3,7 @@ var Area = (function () {
     function Area(positionX, positionY) {
         this.positionX = positionX;
         this.positionY = positionY;
+        this.charachter = "";
     }
     return Area;
 }());

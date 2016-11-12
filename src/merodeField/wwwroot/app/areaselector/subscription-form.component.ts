@@ -14,4 +14,10 @@ export class SubscriptionFormComponent {
     constructor(){
         this.subscription = new Subscription();
     }
+
+    submitted = false;
+
+    onSubmit() {
+        this.submitted=true;
+    }
 }
