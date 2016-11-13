@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }      from '@angular/router';
-import { Field, Area } from './field';
-import { Subscription } from './subscription';
+import { Field, FieldArea, Subscription } from './model';
+
 
 @Component({
   selector: 'my-areaselector',
@@ -25,7 +25,7 @@ export class AreaSelectorComponent implements OnInit {
     ngOnInit() {
     }  
 
-    onKey(value:string, area:Area) {
+    onKey(value:string, area:FieldArea) {
         area.charachter = value.toUpperCase();
     }  
 

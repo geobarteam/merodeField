@@ -9,12 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var subscription_1 = require('./subscription');
+var model_1 = require('./model');
 var SubscriptionFormComponent = (function () {
     function SubscriptionFormComponent() {
         this.onSubmitted = new core_1.EventEmitter();
         this.submitted = false;
-        this.subscription = new subscription_1.Subscription();
+        this.subscription = new model_1.Subscription();
     }
     SubscriptionFormComponent.prototype.onSubmit = function () {
         this.submitted = true;

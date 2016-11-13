@@ -1,8 +1,18 @@
-export class Area{
+export class Position {
+    constructor(
+        public x: number,
+        public y: number
+    ) { }
+
+    equal(position: Position): boolean {
+        return position.x === this.x && position.y === this.y;
+    }
+}
+
+export class FieldArea{
     selected: boolean;
     constructor(
-        public positionX: number,
-        public positionY: number
+        public position:Position
     ){}
     charachter = "";
     
@@ -10,7 +20,7 @@ export class Area{
 
 export class Field{
     
-    public areas: Area[][];
+    public areas: FieldArea[][];
     public rowNumbers:Array<number>;
     public colNumbers:Array<number>;
 
@@ -26,17 +36,17 @@ export class Field{
         this.colNumbers.forEach((col)=>{
         this.areas[col] = [];
             this.rowNumbers.forEach((row)=>{
-                this.areas[col][row] = new Area(col,row);
+                this.areas[col][row] = new FieldArea(new Position(col,row));
             });
         });
     }
 
-    selectArea(x:number,y:number){
+    selectFieldArea(x:number,y:number){
         this.areas[x][y].selected = !this.areas[x][y].selected;
     }
 
-    selectedAreas():Area[] {
-        var filetered = Array<Area>();
+    selectedFieldAreas():FieldArea[] {
+        var filetered = Array<FieldArea>();
         this.areas.forEach(row=>row.forEach(col => {
             if (col.selected) {
                 filetered.push(col);
@@ -53,4 +63,19 @@ export class Field{
         return items;
     } 
    
+}
+
+
+export class SubscriptionArea {
+    constructor(
+        public position: Position,
+        public char: string
+    ) { }
+}
+
+export class Subscription {
+    public id: string;
+    public email: string;
+    public firstName: string;
+    public lastName: string;
 }

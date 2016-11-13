@@ -10,14 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var field_1 = require('./field');
+var model_1 = require('./model');
 var AreaSelectorComponent = (function () {
     function AreaSelectorComponent(router) {
         this.router = router;
         this.rowCount = 36;
         this.colCount = 25;
         this.submitted = false;
-        this.field = new field_1.Field(this.colCount, this.rowCount);
+        this.field = new model_1.Field(this.colCount, this.rowCount);
     }
     AreaSelectorComponent.prototype.ngOnInit = function () {
     };

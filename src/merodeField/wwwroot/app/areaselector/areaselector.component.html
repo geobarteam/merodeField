@@ -7,27 +7,27 @@
             <table class="fieldbackground">
                 <tr  *ngFor="let x of field.colNumbers">
                     <td *ngFor="let y of field.rowNumbers">
-                        <button class="transparent parcel" [class.selected]="field.areas[x][y].selected"  (click)="field.selectArea(x,y)">{{field.areas[x][y].character}}</button>
+                        <button class="transparent parcel" [class.selected]="field.areas[x][y].selected"  (click)="field.selectFieldArea(x,y)">{{field.areas[x][y].character}}</button>
                     </td>
                 </tr>
             </table>
         </div>
-        <div class="panel-footer" *ngIf="field.selectedAreas().length > 0">
+        <div class="panel-footer" *ngIf="field.selectedFieldAreas().length > 0">
             <div class="row">
-                <p *ngIf="field.selectedAreas().length == 1"><label>Je selecteerde één perceel</label></p>
-                <p *ngIf="field.selectedAreas().length > 1"><label>Je selecteerde {{field.selectedAreas().length}} percelen</label></p>
+                <p *ngIf="field.selectedFieldAreas().length == 1"><label>Je selecteerde één perceel</label></p>
+                <p *ngIf="field.selectedFieldAreas().length > 1"><label>Je selecteerde {{field.selectedFieldAreas().length}} percelen</label></p>
                 <p>In elk perceel kan je 1 charchter plaatsen</p>
                 </div>
             <div class="row">
                 <ul>
-                    <li *ngFor="let area of field.selectedAreas()">({{area.positionX}},{{area.positionY}}) 
+                    <li *ngFor="let area of field.selectedFieldAreas()">({{area.position.x}},{{area.position.y}}) 
                         <input #box type="text" (keyup)="onKey(box.value, area)" [(ngModel)]="area.character" maxlength="1" size="1"/>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <subscription-form [areas]="field.selectedAreas()" (onSubmitted)="onSubmitted($event)"></subscription-form>
+    <subscription-form [areas]="field.selectedFieldAreas()" (onSubmitted)="onSubmitted($event)"></subscription-form>
     <div class="panel" *ngIf="submitted">
         <p>We danken u van harte voor uw steun!</p>
         <p>Een e-mail werd naar {{subscription.email}} gestuurd.</p>
