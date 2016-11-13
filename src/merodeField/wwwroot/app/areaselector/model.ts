@@ -74,8 +74,13 @@ export class SubscriptionArea {
 }
 
 export class Subscription {
+
+    constructor() {
+        this.areas = new Array<SubscriptionArea>();
+    }
     public id: string;
     public email: string;
     public firstName: string;
     public lastName: string;
+    public areas: SubscriptionArea[];
 }

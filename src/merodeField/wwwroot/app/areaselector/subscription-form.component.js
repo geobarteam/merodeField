@@ -10,15 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var model_1 = require('./model');
+var subscription_service_1 = require('../services/subscription.service');
 var SubscriptionFormComponent = (function () {
-    function SubscriptionFormComponent() {
+    function SubscriptionFormComponent(subscriptionService) {
+        this.subscriptionService = subscriptionService;
         this.onSubmitted = new core_1.EventEmitter();
         this.submitted = false;
         this.subscription = new model_1.Subscription();
     }
     SubscriptionFormComponent.prototype.onSubmit = function () {
-        this.submitted = true;
-        this.onSubmitted.emit(this.subscription);
+        var _this = this;
+        this.areas.forEach(function (area) {
+            _this.subscription.areas.push(new model_1.SubscriptionArea(area.position, area.charachter));
+        });
+        this.subscriptionService.addSubscription(this.subscription)
+            .then(function (result) {
+            _this.onSubmitted.emit(result);
+            _this.submitted = true;
+        }, function (error) { return console.error(error); });
     };
     __decorate([
         core_1.Input(), 
@@ -33,7 +42,7 @@ var SubscriptionFormComponent = (function () {
             selector: 'subscription-form',
             templateUrl: 'app/areaselector/subscription-form.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [subscription_service_1.SubscriptionService])
     ], SubscriptionFormComponent);
     return SubscriptionFormComponent;
 }());

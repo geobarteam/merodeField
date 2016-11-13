@@ -68,6 +68,7 @@ var SubscriptionArea = (function () {
 exports.SubscriptionArea = SubscriptionArea;
 var Subscription = (function () {
     function Subscription() {
+        this.areas = new Array();
     }
     return Subscription;
 }());
